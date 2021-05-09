@@ -7,8 +7,6 @@ I created this project using Node.js, Express and MongoDB.
 You can ckeck it out through Postman or any other API Client Software.
 
 
-### Link: https://bookshop-restfull-api.herokuapp.com/books
-
 
 
 #### Examples:
