@@ -1,5 +1,4 @@
 # BookShop-Restfull-API
-https://bookshop-restfull-api.herokuapp.com/books
 
 A Bookshop API with the entries title, author and price.
 I created this project using Node.js, Express and MongoDB.
