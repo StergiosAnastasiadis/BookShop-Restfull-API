@@ -20,9 +20,9 @@ You can ckeck it out through Postman or any other API Client Software.
 Get all Books
 
 ## GET
-### https://bookshop-restfull-api.herokuapp.com/books/6028536b7b0a6c058c4409c6
+### https://bookshop-restfull-api.herokuapp.com/books/609781c3b03e063c4f285bdb
 
-Get a specific book with the id /60...9c6
+Get a specific book with the id /60...bdb
 
 
 ## POST
@@ -38,9 +38,9 @@ price: 11.99
 
 
 ## DELETE
-### https://bookshop-restfull-api.herokuapp.com/books/6028536b7b0a6c058c4409c6
+### https://bookshop-restfull-api.herokuapp.com/books/609781c3b03e063c4f285bdb
 
-Deletes the specific entry, with the id 60...9c6.
+Deletes the specific entry, with the id 60...bdb
 
 I have also included a patch method.
 
