@@ -3,7 +3,6 @@ https://bookshop-restfull-api.herokuapp.com/books
 
 A Bookshop API with the entries title, author and price.
 I created this project using Node.js, Express and MongoDB.
-I have hosted it on the Heroku Servers 
 
 You can ckeck it out through Postman or any other API Client Software.
 
