@@ -22,7 +22,7 @@ Get all Books
 ## GET
 ### https://bookshop-restfull-api.herokuapp.com/books/6028536b7b0a6c058c4409c6
 
-Get a specific book with the id /6028536b7b0a6c058c4409c6
+Get a specific book with the id /60...9c6
 
 
 ## POST
@@ -40,7 +40,7 @@ price: 11.99
 ## DELETE
 ### https://bookshop-restfull-api.herokuapp.com/books/6028536b7b0a6c058c4409c6
 
-Deletes the specific entry, with the id 5f...635.
+Deletes the specific entry, with the id 60...9c6.
 
 I have also included a patch method.
 
