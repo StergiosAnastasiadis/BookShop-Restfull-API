@@ -22,7 +22,7 @@ Get all Books
 ## GET
 ### https://bookshop-restfull-api.herokuapp.com/books/6028536b7b0a6c058c4409c6
 
-Get a specific book with the id
+Get a specific book with the id /6028536b7b0a6c058c4409c6
 
 
 ## POST
