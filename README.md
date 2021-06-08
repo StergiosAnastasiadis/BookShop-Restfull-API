@@ -3,7 +3,7 @@
 A Bookshop API with the entries title, author and price.
 I created this project using Node.js, Express and MongoDB.
 
-You can ckeck it out through Postman or any other API Client Software.
+You can ckeck it out with Postman or any other API Client Software.
 
 #### Examples:
 
