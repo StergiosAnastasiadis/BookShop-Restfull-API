@@ -3,23 +3,29 @@ const {
   getAllBooks,
   getABook,
   updateABook,
-  deleteABook
-} = require("../controllers/controllers");
+  deleteABook,
+} = require('../controllers/controllers')
 
 const routes = (app) => {
-  app.route("/books")
+  app
+    .route('/books')
 
     .get(getAllBooks)
 
-    .post(addABook);
+    .post(addABook)
 
-  app.route("/books/:id")
+  app
+    .route('/books/:id')
 
     .get(getABook)
 
     .patch(updateABook)
 
-    .delete(deleteABook);
+    .delete(deleteABook)
+
+  app.get('/', (req, res) => {
+    res.send('<h1>BookShop API</h1>')
+  })
 }
 
-module.exports = routes;
+module.exports = routes
