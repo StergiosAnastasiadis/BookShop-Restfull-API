@@ -1,6 +1,5 @@
-const mongoose = require('mongoose')
-const express = require('express')
-const schema = require('../models/schema')
+import mongoose from 'mongoose'
+import schema from '../models/schema.js'
 const Book = mongoose.model('Book', schema)
 
 const getABook = (req, res) => {
@@ -91,22 +90,14 @@ const deleteABook = (req, res) => {
           message: 'Successfully deleted book',
         })
       } else {
-        res
-          .status(404)
-          .send({
-            error: error,
-            statusCode: 404,
-            message: 'No books found mathing that id.',
-          })
+        res.status(404).send({
+          error: error,
+          statusCode: 404,
+          message: 'No books found mathing that id.',
+        })
       }
     }
   )
 }
 
-module.exports = {
-  addABook,
-  getAllBooks,
-  getABook,
-  updateABook,
-  deleteABook,
-}
+export { addABook, getAllBooks, getABook, updateABook, deleteABook }

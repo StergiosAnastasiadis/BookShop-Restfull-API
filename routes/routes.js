@@ -1,10 +1,10 @@
-const {
+import {
   addABook,
   getAllBooks,
   getABook,
   updateABook,
   deleteABook,
-} = require('../controllers/controllers')
+} from '../controllers/controllers.js'
 
 const routes = (app) => {
   app
@@ -28,4 +28,4 @@ const routes = (app) => {
   })
 }
 
-module.exports = routes
+export default routes

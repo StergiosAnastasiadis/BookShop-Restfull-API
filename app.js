@@ -1,8 +1,7 @@
-require('dotenv').config()
-const express = require('express')
-const mongoose = require('mongoose')
-const routes = require('./routes/routes')
-const connectDB = require('./db/connect')
+import 'dotenv/config'
+import express from 'express'
+import { connectDB } from './db/connect.js'
+import routes from './routes/routes.js'
 
 const PORT = process.env.PORT || 5000
 const app = express()
