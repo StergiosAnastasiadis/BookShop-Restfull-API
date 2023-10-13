@@ -10,7 +10,8 @@ connectDB()
 
 app.use(express.json())
 app.use(helmet())
-app.use(routes)
+app.use('/', routes)
+
 
 app.get('/', (req, res) => {
   res.send('<h1>BookShop API</h1>')
