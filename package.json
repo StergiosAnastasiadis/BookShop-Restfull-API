@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "BookShop Restfull API",
   "main": "app.js",
-  "type": "module" ,
+  "type": "module",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
@@ -16,6 +16,7 @@
     "mongoose": "^7.6.2"
   },
   "devDependencies": {
+    "eslint": "^8.51.0",
     "nodemon": "^3.0.1"
   }
 }
