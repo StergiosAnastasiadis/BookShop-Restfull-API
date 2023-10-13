@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
-import schema from '../models/schema.js'
-const Book = mongoose.model('Book', schema)
+import { model } from 'mongoose'
+import bookSchema from '../models/schema.js'
+const Book = model('Book', bookSchema)
 
 const getABook = (req, res) => {
   Book.findOne(
