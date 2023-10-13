@@ -1,20 +1,18 @@
-require('dotenv').config();
-const express = require("express");
-const mongoose = require("mongoose");
-const routes = require("./routes/routes");
+require('dotenv').config()
+const express = require('express')
+const mongoose = require('mongoose')
+const routes = require('./routes/routes')
+const connectDB = require('./db/connect')
 
-const PORT = process.env.PORT || 5000;
-const app = express();
+const PORT = process.env.PORT || 5000
+const app = express()
 
-mongoose.connect(process.env.DB_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+connectDB()
 
-app.use(express.json());
+app.use(express.json())
 
-routes(app);
+routes(app)
 
 app.listen(PORT, () => {
-  console.log(`Sever is running on port ${PORT}...`);
-});
+  console.log(`Sever is running on port ${PORT}...`)
+})
