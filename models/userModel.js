@@ -21,10 +21,7 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: true,
-    },
-    companyName: {
-      type: String,
-    },
+    },    
     address: {
       type: String,
     },
@@ -39,7 +36,7 @@ const userSchema = mongoose.Schema(
     favorites: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'CV',
+        ref: 'Book',
       },
     ],
   },
