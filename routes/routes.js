@@ -22,10 +22,6 @@ const routes = (app) => {
     .patch(updateABook)
 
     .delete(deleteABook)
-
-  app.get('/', (req, res) => {
-    res.send('<h1>BookShop API</h1>')
-  })
 }
 
 export default routes
