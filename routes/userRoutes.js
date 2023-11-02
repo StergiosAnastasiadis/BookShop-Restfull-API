@@ -4,6 +4,6 @@ import { registerUser, authUser } from '../controllers/userControllers.js'
 const router = Router()
 
 router.post('/', registerUser)
-router.post('/AUTH', authUser)
+router.post('/auth', authUser)
 
 export default router

@@ -1,3 +1,4 @@
+import { Router } from 'express'
 import {
   addABook,
   getAllBooks,
@@ -5,23 +6,31 @@ import {
   updateABook,
   deleteABook,
 } from '../controllers/controllers.js'
+import { authUser, registerUser } from '../controllers/userControllers.js'
 
-const routes = (app) => {
-  app
-    .route('/books')
+// const routes = (app) => {
+//   app
+//     .route('/books')
 
-    .get(getAllBooks)
+//     .get(getAllBooks)
 
-    .post(addABook)
+//     .post(addABook)
 
-  app
-    .route('/books/:id')
+//   app
+//     .route('/books/:id')
 
-    .get(getABook)
+//     .get(getABook)
 
-    .patch(updateABook)
+//     .patch(updateABook)
 
-    .delete(deleteABook)
-}
+//     .delete(deleteABook)
 
-export default routes
+//   // app.post('register', authUser)
+//   // app.post('api/auth', registerUser)
+// }
+
+const router = Router()
+
+router.post('/', addABook)
+
+export default router
