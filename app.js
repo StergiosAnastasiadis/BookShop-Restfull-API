@@ -1,4 +1,5 @@
 import 'dotenv/config'
+import path from 'path'
 import express from 'express'
 import helmet from 'helmet'
 import { connectDB } from './db/connect.js'
@@ -23,21 +24,20 @@ app.use(express.json())
 app.use(helmet())
 app.use('/', routes)
 
+if (process.env.NODE_ENV === 'production') {
+  const __dirname = path.resolve()
+  app.use(express.static(path.join(__dirname, '../react-bootstrap/build')))
 
-app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, '..', 'react-bootstrap', 'build', 'index.html'))
+  )
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running....')
+  })
+}
 
-// if (process.env.NODE_ENV === 'production') {
-//   const __dirname = path.resolve()
-//   app.use(express.static(path.join(__dirname, '/frontend/dist')))
-
-//   app.get('*', (req, res) =>
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
-//   )
-// } else {
-//   app.get('/', (req, res) => {
-//     res.send('API is running....')
-//   })
-// }
+// app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
 
 app.use(notFound)
 
