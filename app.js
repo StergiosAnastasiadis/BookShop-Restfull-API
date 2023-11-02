@@ -24,18 +24,18 @@ app.use(express.json())
 app.use(helmet())
 app.use('/', routes)
 
-if (process.env.NODE_ENV === 'production') {
-  const __dirname = path.resolve()
-  app.use(express.static(path.join(__dirname, '../react-bootstrap/build')))
+// if (process.env.NODE_ENV === 'production') {
+//   const __dirname = path.resolve()
+//   app.use(express.static(path.join(__dirname, '../react-bootstrap/build')))
 
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, '..', 'react-bootstrap', 'build', 'index.html'))
-  )
-} else {
-  app.get('/', (req, res) => {
-    res.send('API is running....')
-  })
-}
+//   app.get('*', (req, res) =>
+//     res.sendFile(path.resolve(__dirname, '..', 'react-bootstrap', 'build', 'index.html'))
+//   )
+// } else {
+//   app.get('/', (req, res) => {
+//     res.send('API is running....')
+//   })
+// }
 
 app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
 
