@@ -3,16 +3,16 @@ import bcrypt from 'bcryptjs'
 
 const userSchema = mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      required: true,
-      unique: false,
-    },
-    lastName: {
-      type: String,
-      required: true,
-      unique: false,
-    },
+    // firstName: {
+    //   type: String,
+    //   required: true,
+    //   unique: false,
+    // },
+    // lastName: {
+    //   type: String,
+    //   required: true,
+    //   unique: false,
+    // },
     email: {
       type: String,
       required: true,
@@ -22,23 +22,23 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },    
-    address: {
-      type: String,
-    },
-    userRights: {
-      type: String,
-      require: true,
-    },
-    credits: {
-      type: Number,
-      default: 0,
-    },
-    favorites: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Book',
-      },
-    ],
+    // address: {
+    //   type: String,
+    // },
+    // userRights: {
+    //   type: String,
+    //   require: true,
+    // },
+    // credits: {
+    //   type: Number,
+    //   default: 0,
+    // },
+    // favorites: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Book',
+    //   },
+    // ],
   },
   {
     timestamps: true,
