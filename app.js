@@ -18,7 +18,7 @@ var corsOptions = {
 
 const app = express()
 connectDB()
-// app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 
 app.use(express.json())
 app.use(helmet())
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-// app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
+app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
 
 app.use(notFound)
 
