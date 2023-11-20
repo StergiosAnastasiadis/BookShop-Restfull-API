@@ -66,31 +66,36 @@ const getAllBooks = async (req, res) => {
   res.send(books)
 }
 
-const updateABook = (req, res) => {
-  Book.update(
-    {
-      _id: req.params.id,
-    },
-    {
-      $set: req.body,
-    },
-    (err) => {
-      if (!err) {
-        res.send({
-          error: false,
-          statusCode: 200,
-          message: 'Successfully updated book.',
-        })
-      } else {
-        res.status(404).send({
-          error: true,
-          statusCode: 404,
-          message: 'No books found mathing that id.',
-        })
-      }
-    }
-  )
-}
+// const updateABook = (req, res) => {
+//   Book.update(
+//     {
+//       _id: req.params.id,
+//     },
+//     {
+//       $set: req.body,
+//     },
+//     (err) => {
+//       if (!err) {
+//         res.send({
+//           error: false,
+//           statusCode: 200,
+//           message: 'Successfully updated book.',
+//         })
+//       } else {
+//         res.status(404).send({
+//           error: true,
+//           statusCode: 404,
+//           message: 'No books found mathing that id.',
+//         })
+//       }
+//     }
+//   )
+// }
+const updateABook = asyncHandler(async (req, res) => {
+  const id = req.params.id
+  const bookUpdated = await Book.updateOne({ _id: id }, { $set: req.body })
+  res.send({ error: false, statusCode: 200, data: bookUpdated })
+})
 
 const deleteABook = (req, res) => {
   Book.deleteOne(

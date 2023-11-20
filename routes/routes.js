@@ -12,5 +12,6 @@ const router = Router()
 
 router.post('/', addABook)
 router.get('/', getAllBooks)
+router.put('/:id', updateABook)
 
 export default router
