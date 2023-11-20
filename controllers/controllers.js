@@ -2,6 +2,7 @@ import { model } from 'mongoose'
 // import bookSchema from '../models/schema.js'
 import bookSchema from '../models/bookModel.js'
 const Book = model('Book', bookSchema)
+import asyncHandler from 'express-async-handler'
 
 const getABook = (req, res) => {
   Book.findOne(
@@ -22,50 +23,47 @@ const getABook = (req, res) => {
   )
 }
 
-const addABook = async (req, res) => {
-  const newBook = new Book({
-    title: req.body.title,
-    author: req.body.author,
-    price: req.body.price,
-  })
+const addABook = asyncHandler(async (req, res) => {
+  const data = req.body
 
-  // newBook.save(function (err) {
-  //   if (!err) {
-  //     res.status(201).send({
-  //       error: false,
-  //       statusCode: 201,
-  //       data: 'Successfully added a Book',
-  //     })
-  //   } else {
-  //     res.send(err)
-  //   }
-  // })
-  const book = await Book.create({
-    title: req.body.title,
-    author: req.body.author,
-    price: req.body.price,
-  })
+  const book = await Book.create(data)
 
   if (book) {
-    res.status(201).json({
-      status: 201, 
-      data: {
-        book
-      },
-    })
+    res.status(201).json({ error: false, statusCode: 201, data: book, })
   } else {
-    res.status(400).send('Invalid book Data')
+    res.status(400).send({ error: true, statusCode: 400, message: 'Invalid book data' })
   }
-}
+})
 
-const getAllBooks = (req, res) => {
-  Book.find((err, foundBooks) => {
-    if (!err) {
-      res.send({ error: false, statusCode: 200, data: foundBooks })
-    } else {
-      console.log(err)
-    }
-  })
+// const addABook = async (req, res) => {
+//   const newBook = new Book({
+//     title: req.body.title,
+//     author: req.body.author,
+//     price: req.body.price,
+//   })
+
+//   const book = await Book.create({
+//     title: req.body.title,
+//     author: req.body.author,
+//     price: req.body.price,
+//   })
+
+//   if (book) {
+//     res.status(201).json({
+//       status: 201,
+//       data: {
+//         book
+//       },
+//     })
+//   } else {
+//     res.status(400).send('Invalid book Data')
+//   }
+// }
+
+
+const getAllBooks = async (req, res) => {
+  const books = await Book.find({})
+  res.send(books)
 }
 
 const updateABook = (req, res) => {

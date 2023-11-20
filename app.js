@@ -18,11 +18,22 @@ var corsOptions = {
 
 const app = express()
 connectDB()
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(express.json())
 app.use(helmet())
 app.use('/', routes)
+
+app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
+
+app.use(notFound)
+
+app.listen(PORT, () => {
+  console.log(`Sever is running on port ${PORT}...`)
+})
+
+
 
 // if (process.env.NODE_ENV === 'production') {
 //   const __dirname = path.resolve()
@@ -36,11 +47,3 @@ app.use('/', routes)
 //     res.send('API is running....')
 //   })
 // }
-
-app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
-
-app.use(notFound)
-
-app.listen(PORT, () => {
-  console.log(`Sever is running on port ${PORT}...`)
-})
