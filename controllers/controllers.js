@@ -93,7 +93,7 @@ const getAllBooks = async (req, res) => {
 // }
 const updateABook = asyncHandler(async (req, res) => {
   const id = req.params.id
-  const bookUpdated = await Book.updateOne({ _id: id }, { $set: req.body })
+  const bookUpdated = await Book.updateOne({ _id: id }, { $set: req.body }, { new: true })
   res.send({ error: false, statusCode: 200, data: bookUpdated })
 })
 
