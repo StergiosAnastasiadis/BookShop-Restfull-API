@@ -8,16 +8,16 @@ import { notFound } from './middlewares/errorMiddleware.js'
 import cors from 'cors'
 
 const PORT = process.env.PORT || 5000
-
 // Cors Config
 var corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? ['http://51.20.127.34/'] : ['http://localhost:3000'],
+  origin: [process.env.UI_URL],
+  // origin: process.env.NODE_ENV === 'production' ? ['http://51.20.127.34/'] : ['http://localhost:3000'],
   credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
 const app = express()
-connectDB()
+connectDB(corsOptions)
 // app.use(cors(corsOptions))
 app.use(cors())
 
@@ -25,7 +25,7 @@ app.use(express.json())
 app.use(helmet())
 app.use('/', routes)
 
-app.get('/', (req, res) => {res.send('<h1>BookShop API</h1>')})
+app.get('/', (req, res) => { res.send('<h1>BookShop API</h1>') })
 
 app.use(notFound)
 
